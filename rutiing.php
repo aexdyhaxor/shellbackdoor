@@ -7,7 +7,7 @@ error_reporting(0);
 @clearstatcache();
 
 $s_title = "JOMOK48 TEAM"; 
-$s_pass = "2be4e07e1cd02e56f1a6d8c3e4577d46"; // default : rootkitninja
+$s_pass = "4952e7a7d28359be6da407aee6c54e13"; // default : rootkitninja
 $s_color = "9d1920"; // shell theme color, default : 4c83af
 $s_login_time = 3600 * 24 * 7; // cookie time (login)
 
